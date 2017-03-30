@@ -16,7 +16,7 @@ import com.lucatic.agenda.beans.Categoria;
  * @see com.lucatic.agenda.dao.Categorias
  * @author Hibernate Tools
  */
-public class CategoriaDAO {
+public class CategoriaDAO implements  GestorDAO<Categoria>{
 
 	private static final Log log = LogFactory.getLog(CategoriaDAO.class);
 

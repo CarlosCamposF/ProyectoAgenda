@@ -41,6 +41,27 @@ public class Persona implements java.io.Serializable {
 		this.direccioneses = direccioneses;
 		this.telefonoses = telefonoses;
 	}
+	public void addTelefono(Telefono telefono){
+		this.telefonoses.add(telefono);
+	}
+	public void addDireccion(Direccion direccion){
+		this.direccioneses.add(direccion);
+	}
+	public String deleteTelefono(Telefono telefono){
+		if(telefonoses.remove(telefono)){
+			return "Telefono eliminado correctamente";
+		}else{
+			return "Error al eliminar, telefono no encontrado";
+		}
+	}
+	public String deleteDireccion(Direccion direccion){
+		if(direccioneses.remove(direccion)){
+			return "Direccion eliminada correctamente";
+		}else{
+			return "Error al eliminar, direccion no encontrado";
+		}
+				
+	}
 
 	public Integer getIdpersonas() {
 		return this.idpersonas;
