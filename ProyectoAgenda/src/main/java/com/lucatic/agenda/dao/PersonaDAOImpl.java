@@ -67,18 +67,46 @@ public class PersonaDAOImpl implements PersonaDAO{
 		
 	}
 
-	public Persona getNombre(String nombre) {
-		// TODO Auto-generated method stub
+	public List<Persona> getNombre(String nombre) {
+		String hql = "from personas where nombre like %" + nombre+"%";
+		Query query = sessionFactory.getCurrentSession().createQuery(hql);
+
+		@SuppressWarnings("unchecked")
+		List<Persona> listPersona = (List<Persona>) query.list();
+
+		if (listPersona != null && !listPersona.isEmpty()) {
+			return listPersona;
+		}
+
+		return null;
+	}
+	
+
+	public List<Persona> getTelefono(int telefono) {
+		String hql = "from personas a, telefonos b where a.idpersonas=idPersona and telefono like %" + telefono+"%";
+		Query query = sessionFactory.getCurrentSession().createQuery(hql);
+
+		@SuppressWarnings("unchecked")
+		List<Persona> listPersona = (List<Persona>) query.list();
+
+		if (listPersona != null && !listPersona.isEmpty()) {
+			return listPersona;
+		}
+
 		return null;
 	}
 
-	public Persona getTelefono(int telefono) {
-		// TODO Auto-generated method stub
-		return null;
-	}
+	public List<Persona> getDireccion(String direccion) {
+		String hql = "from personas a, direcciones b where a.idpersona=b.idPersona and direccion like %" + direccion+"%";
+		Query query = sessionFactory.getCurrentSession().createQuery(hql);
 
-	public Persona getDireccion(String direccion) {
-		// TODO Auto-generated method stub
+		@SuppressWarnings("unchecked")
+		List<Persona> listPersona = (List<Persona>) query.list();
+
+		if (listPersona != null && !listPersona.isEmpty()) {
+			return listPersona;
+		}
+
 		return null;
-	}
+}
 }

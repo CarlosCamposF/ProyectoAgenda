@@ -9,9 +9,9 @@ import org.hibernate.LockMode;
 import org.hibernate.SessionFactory;
 import org.hibernate.criterion.Example;
 
-import com.lucatic.agenda.beans.Categoria;
+
 import com.lucatic.agenda.beans.Empleado;
-import com.lucatic.agenda.beans.Persona;
+
 
 /**
  * Home object for domain model class Empleados.
@@ -19,4 +19,10 @@ import com.lucatic.agenda.beans.Persona;
  * @author Hibernate Tools
  */
 public interface EmpleadoDAO extends  GestorDAO<Empleado>{
+
+	public List<Empleado> getDep(String dep);
+	
+	public List<Empleado> getCat(String cate);
+	
+	public List<Empleado> getSalario(int salario1, int salario2);
 }
