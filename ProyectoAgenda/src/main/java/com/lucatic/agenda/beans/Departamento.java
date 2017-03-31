@@ -24,6 +24,13 @@ public class Departamento implements java.io.Serializable {
 		this.nombre = nombre;
 		
 	}
+	public String addEmpleado(Empleado emp){
+		if(this.dep_empleados.add(emp)){
+			return "Empleado agregado correctamente al departamento";
+		}else{
+			return "Error agregando al empleado en el departamento";
+		}
+	}
 
 	public Integer getIddepartamento() {
 		return this.iddepartamento;

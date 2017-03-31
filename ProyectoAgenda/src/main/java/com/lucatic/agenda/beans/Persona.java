@@ -19,8 +19,8 @@ public class Persona implements java.io.Serializable {
 	private String apellido2;
 	private String dni;
 	private Date fechaNacimiento;
-	private List<Direccion> direccioneses = new ArrayList();
-	private List<Telefono> telefonoses = new ArrayList();
+	private Set<Direccion> direccioneses = new HashSet();
+	private Set<Telefono> telefonoses = new HashSet();
 
 	public Persona() {
 	}
@@ -31,15 +31,15 @@ public class Persona implements java.io.Serializable {
 	}
 
 	public Persona(Empleado empleados, String nombre, String apellido1, String apellido2, String dni,
-			Date fechaNacimiento, List direccioneses, List telefonoses) {
+			Date fechaNacimiento, Direccion direccioneses, Telefono telefonoses) {
 		this.empleados = empleados;
 		this.nombre = nombre;
 		this.apellido1 = apellido1;
 		this.apellido2 = apellido2;
 		this.dni = dni;
 		this.fechaNacimiento = fechaNacimiento;
-		this.direccioneses = direccioneses;
-		this.telefonoses = telefonoses;
+		addTelefono(telefonoses);
+		addDireccion(direccioneses);
 	}
 	public void addTelefono(Telefono telefono){
 		this.telefonoses.add(telefono);
@@ -119,19 +119,19 @@ public class Persona implements java.io.Serializable {
 		this.fechaNacimiento = fechaNacimiento;
 	}
 
-	public List getDireccioneses() {
+	public Set getDireccioneses() {
 		return this.direccioneses;
 	}
 
-	public void setDireccioneses(List direccioneses) {
+	public void setDireccioneses(Set direccioneses) {
 		this.direccioneses = direccioneses;
 	}
 
-	public List getTelefonoses() {
+	public Set getTelefonoses() {
 		return this.telefonoses;
 	}
 
-	public void setTelefonoses(List telefonoses) {
+	public void setTelefonoses(Set telefonoses) {
 		this.telefonoses = telefonoses;
 	}
 

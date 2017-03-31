@@ -87,7 +87,7 @@ public class CategoriaDAO implements  GestorDAO<Categoria>{
 		}
 	}
 
-	public Categoria findById(java.lang.Integer id) {
+	public Categoria findById(int id) {
 		log.debug("getting Categorias instance with id: " + id);
 		try {
 			Categoria instance = (Categoria) sessionFactory.getCurrentSession()
@@ -116,4 +116,11 @@ public class CategoriaDAO implements  GestorDAO<Categoria>{
 			throw re;
 		}
 	}
+
+	public void close() throws Exception {
+		// TODO Auto-generated method stub
+		
+	}
+
+	
 }
