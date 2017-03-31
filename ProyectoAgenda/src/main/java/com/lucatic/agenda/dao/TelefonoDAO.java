@@ -9,6 +9,7 @@ import org.hibernate.LockMode;
 import org.hibernate.SessionFactory;
 import org.hibernate.criterion.Example;
 
+import com.lucatic.agenda.beans.Persona;
 import com.lucatic.agenda.beans.Telefono;
 
 /**
@@ -17,103 +18,28 @@ import com.lucatic.agenda.beans.Telefono;
  * @author Hibernate Tools
  */
 public class TelefonoDAO {
-
-	private static final Log log = LogFactory.getLog(TelefonoDAO.class);
-
-	private final SessionFactory sessionFactory = getSessionFactory();
-
-	protected SessionFactory getSessionFactory() {
-		try {
-			return (SessionFactory) new InitialContext().lookup("SessionFactory");
-		} catch (Exception e) {
-			log.error("Could not locate SessionFactory in JNDI", e);
-			throw new IllegalStateException("Could not locate SessionFactory in JNDI");
-		}
+	public void close() throws Exception {
+		// TODO Auto-generated method stub
+		
 	}
 
-	public void persist(Telefono transientInstance) {
-		log.debug("persisting Telefonos instance");
-		try {
-			sessionFactory.getCurrentSession().persist(transientInstance);
-			log.debug("persist successful");
-		} catch (RuntimeException re) {
-			log.error("persist failed", re);
-			throw re;
-		}
+	public List<Telefono> list() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
-	public void attachDirty(Telefono instance) {
-		log.debug("attaching dirty Telefonos instance");
-		try {
-			sessionFactory.getCurrentSession().saveOrUpdate(instance);
-			log.debug("attach successful");
-		} catch (RuntimeException re) {
-			log.error("attach failed", re);
-			throw re;
-		}
+	public Telefono get(int id) {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
-	public void attachClean(Telefono instance) {
-		log.debug("attaching clean Telefonos instance");
-		try {
-			sessionFactory.getCurrentSession().lock(instance, LockMode.NONE);
-			log.debug("attach successful");
-		} catch (RuntimeException re) {
-			log.error("attach failed", re);
-			throw re;
-		}
+	public void saveOrUpdate(Telefono item) {
+		// TODO Auto-generated method stub
+		
 	}
 
-	public void delete(Telefono persistentInstance) {
-		log.debug("deleting Telefonos instance");
-		try {
-			sessionFactory.getCurrentSession().delete(persistentInstance);
-			log.debug("delete successful");
-		} catch (RuntimeException re) {
-			log.error("delete failed", re);
-			throw re;
-		}
-	}
-
-	public Telefono merge(Telefono detachedInstance) {
-		log.debug("merging Telefonos instance");
-		try {
-			Telefono result = (Telefono) sessionFactory.getCurrentSession().merge(detachedInstance);
-			log.debug("merge successful");
-			return result;
-		} catch (RuntimeException re) {
-			log.error("merge failed", re);
-			throw re;
-		}
-	}
-
-	public Telefono findById(java.lang.Integer id) {
-		log.debug("getting Telefonos instance with id: " + id);
-		try {
-			Telefono instance = (Telefono) sessionFactory.getCurrentSession().get("com.lucatic.agenda.dao.Telefonos",
-					id);
-			if (instance == null) {
-				log.debug("get successful, no instance found");
-			} else {
-				log.debug("get successful, instance found");
-			}
-			return instance;
-		} catch (RuntimeException re) {
-			log.error("get failed", re);
-			throw re;
-		}
-	}
-
-	public List findByExample(Telefono instance) {
-		log.debug("finding Telefonos instance by example");
-		try {
-			List results = sessionFactory.getCurrentSession().createCriteria("com.lucatic.agenda.dao.Telefonos")
-					.add(Example.create(instance)).list();
-			log.debug("find by example successful, result size: " + results.size());
-			return results;
-		} catch (RuntimeException re) {
-			log.error("find by example failed", re);
-			throw re;
-		}
-	}
+	public void delete(int id) {
+		// TODO Auto-generated method stub
+		
+}
 }
