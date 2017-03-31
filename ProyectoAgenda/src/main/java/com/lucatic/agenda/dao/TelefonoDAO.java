@@ -17,29 +17,14 @@ import com.lucatic.agenda.beans.Telefono;
  * @see com.lucatic.agenda.dao.Telefonos
  * @author Hibernate Tools
  */
-public class TelefonoDAO {
-	public void close() throws Exception {
-		// TODO Auto-generated method stub
-		
-	}
+public interface TelefonoDAO extends GestorDAO{
+	public void close();
 
-	public List<Telefono> list() {
-		// TODO Auto-generated method stub
-		return null;
-	}
+	public List<Telefono> list();
 
-	public Telefono get(int id) {
-		// TODO Auto-generated method stub
-		return null;
-	}
+	public Telefono get(int id);
 
-	public void saveOrUpdate(Telefono item) {
-		// TODO Auto-generated method stub
-		
-	}
+	public void saveOrUpdate(Telefono item);
 
-	public void delete(int id) {
-		// TODO Auto-generated method stub
-		
-}
+	public void delete(int id);
 }

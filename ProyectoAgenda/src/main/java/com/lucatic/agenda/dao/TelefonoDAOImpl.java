@@ -9,7 +9,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.lucatic.agenda.beans.Telefono;
 
-public class TelefonoDAOImpl extends TelefonoDAO{
+public class TelefonoDAOImpl implements TelefonoDAO{
 	private SessionFactory sessionFactory;
 
 	public TelefonoDAOImpl() {
@@ -20,7 +20,7 @@ public class TelefonoDAOImpl extends TelefonoDAO{
 		this.sessionFactory = sessionFactory;
 	}
 
-	@Override
+	
 	@Transactional
 	public List<Telefono> list() {
 		@SuppressWarnings("unchecked")
@@ -30,13 +30,13 @@ public class TelefonoDAOImpl extends TelefonoDAO{
 		return listDepartamento;
 	}
 
-	@Override
+
 	@Transactional
 	public void saveOrUpdate(Telefono item) {
 		sessionFactory.getCurrentSession().saveOrUpdate(item);
 	}
 
-	@Override
+
 	@Transactional
 	public void delete(int id) {
 		Telefono userToDelete = new Telefono();
@@ -44,7 +44,7 @@ public class TelefonoDAOImpl extends TelefonoDAO{
 		sessionFactory.getCurrentSession().delete(userToDelete);
 	}
 
-	@Override
+	
 	@Transactional
 	public Telefono get(int id) {
 		String hql = "from telefonos where idtelefonos=" + id;
@@ -58,5 +58,15 @@ public class TelefonoDAOImpl extends TelefonoDAO{
 		}
 
 		return null;
+	}
+
+	public void saveOrUpdate(Object item) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	public void close() {
+		// TODO Auto-generated method stub
+		
 	}
 }

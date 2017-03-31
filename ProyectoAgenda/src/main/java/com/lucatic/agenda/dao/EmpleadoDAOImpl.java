@@ -9,7 +9,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.lucatic.agenda.beans.Empleado;
 
-public class EmpleadoDAOImpl extends EmpleadoDAO{
+public class EmpleadoDAOImpl implements EmpleadoDAO{
 	private SessionFactory sessionFactory;
 
 	public  EmpleadoDAOImpl() {
@@ -20,7 +20,7 @@ public class EmpleadoDAOImpl extends EmpleadoDAO{
 		this.sessionFactory = sessionFactory;
 	}
 
-	@Override
+	
 	@Transactional
 	public List<Empleado> list() {
 		@SuppressWarnings("unchecked")
@@ -30,13 +30,13 @@ public class EmpleadoDAOImpl extends EmpleadoDAO{
 		return listDepartamento;
 	}
 
-	@Override
+	
 	@Transactional
 	public void saveOrUpdate(Empleado item) {
 		sessionFactory.getCurrentSession().saveOrUpdate(item);
 	}
 
-	@Override
+	
 	@Transactional
 	public void delete(int id) {
 		Empleado userToDelete = new Empleado();
@@ -44,7 +44,7 @@ public class EmpleadoDAOImpl extends EmpleadoDAO{
 		sessionFactory.getCurrentSession().delete(userToDelete);
 	}
 
-	@Override
+	
 	@Transactional
 	public Empleado get(int id) {
 		String hql = "from empleados where idempleado=" + id;
@@ -58,5 +58,10 @@ public class EmpleadoDAOImpl extends EmpleadoDAO{
 		}
 
 		return null;
+	}
+
+	public void close() {
+		// TODO Auto-generated method stub
+		
 	}
 }

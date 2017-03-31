@@ -18,31 +18,16 @@ import com.lucatic.agenda.beans.Persona;
  * @see com.lucatic.agenda.dao.Direcciones
  * @author Hibernate Tools
  */
-public class DireccionesDAO implements  GestorDAO<Direccion>{
+public interface DireccionesDAO extends GestorDAO<Direccion>{
 
-	public void close() throws Exception {
-		// TODO Auto-generated method stub
-		
-	}
+	public void close();
 
-	public List<Direccion> list() {
-		// TODO Auto-generated method stub
-		return null;
-	}
+	public List<Direccion> list();
 
-	public Direccion get(int id) {
-		// TODO Auto-generated method stub
-		return null;
-	}
+	public Direccion get(int id);
 
-	public void saveOrUpdate(Direccion item) {
-		// TODO Auto-generated method stub
-		
-	}
+	public void saveOrUpdate(Direccion item);
 
-	public void delete(int id) {
-		// TODO Auto-generated method stub
-		
-	}
+	public void delete(int id);
 
 }

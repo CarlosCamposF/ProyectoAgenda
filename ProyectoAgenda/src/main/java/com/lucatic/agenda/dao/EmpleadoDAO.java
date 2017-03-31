@@ -18,31 +18,15 @@ import com.lucatic.agenda.beans.Persona;
  * @see com.lucatic.agenda.dao.Empleados
  * @author Hibernate Tools
  */
-public class EmpleadoDAO implements  GestorDAO<Empleado>{
+public interface EmpleadoDAO extends  GestorDAO<Empleado>{
 
-	public void close() throws Exception {
-		// TODO Auto-generated method stub
-		
-	}
+	public void close();
 
-	public List<Empleado> list() {
-		// TODO Auto-generated method stub
-		return null;
-	}
+	public List<Empleado> list();
 
-	public Empleado get(int id) {
-		// TODO Auto-generated method stub
-		return null;
-	}
+	public Empleado get(int id);
 
-	public void saveOrUpdate(Empleado item) {
-		// TODO Auto-generated method stub
-		
-	}
+	public void saveOrUpdate(Empleado item);
 
-	public void delete(int id) {
-		// TODO Auto-generated method stub
-		
-	}
-
+	public void delete(int id);
 }

@@ -9,7 +9,7 @@ import org.springframework.transaction.annotation.Transactional;
 import com.lucatic.agenda.beans.Direccion;
 
 
-public class DireccionesDAOImpl extends DireccionesDAO {
+public class DireccionesDAOImpl implements DireccionesDAO {
 	private SessionFactory sessionFactory;
 
 	public  DireccionesDAOImpl() {
@@ -20,7 +20,7 @@ public class DireccionesDAOImpl extends DireccionesDAO {
 		this.sessionFactory = sessionFactory;
 	}
 
-	@Override
+	
 	@Transactional
 	public List<Direccion> list() {
 		@SuppressWarnings("unchecked")
@@ -30,13 +30,13 @@ public class DireccionesDAOImpl extends DireccionesDAO {
 		return listDepartamento;
 	}
 
-	@Override
+	
 	@Transactional
 	public void saveOrUpdate(Direccion item) {
 		sessionFactory.getCurrentSession().saveOrUpdate(item);
 	}
 
-	@Override
+	
 	@Transactional
 	public void delete(int id) {
 		Direccion userToDelete = new Direccion();
@@ -44,7 +44,7 @@ public class DireccionesDAOImpl extends DireccionesDAO {
 		sessionFactory.getCurrentSession().delete(userToDelete);
 	}
 
-	@Override
+	
 	@Transactional
 	public Direccion get(int id) {
 		String hql = "from Direcciones where iddirecciones=" + id;
@@ -58,5 +58,10 @@ public class DireccionesDAOImpl extends DireccionesDAO {
 		}
 
 		return null;
+	}
+
+	public void close() {
+		// TODO Auto-generated method stub
+		
 	}
 }

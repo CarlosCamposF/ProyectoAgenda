@@ -11,7 +11,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.lucatic.agenda.beans.Persona;
 
-public class PersonaDAOImpl extends PersonaDAO{
+public class PersonaDAOImpl implements PersonaDAO{
 	@Autowired
 	private SessionFactory sessionFactory;
 
@@ -23,7 +23,6 @@ public class PersonaDAOImpl extends PersonaDAO{
 		this.sessionFactory = sessionFactory;
 	}
 
-	@Override
 	@Transactional
 	public List<Persona> list() {
 		@SuppressWarnings("unchecked")
@@ -33,13 +32,13 @@ public class PersonaDAOImpl extends PersonaDAO{
 		return listUser;
 	}
 
-	@Override
+	
 	@Transactional
 	public void saveOrUpdate(Persona item) {
 		sessionFactory.getCurrentSession().saveOrUpdate(item);
 	}
 
-	@Override
+	
 	@Transactional
 	public void delete(int id) {
 		Persona userToDelete = new Persona();
@@ -47,7 +46,7 @@ public class PersonaDAOImpl extends PersonaDAO{
 		sessionFactory.getCurrentSession().delete(userToDelete);
 	}
 
-	@Override
+	
 	@Transactional
 	public Persona get(int id) {
 		String hql = "from personas where idpersonas=" + id;
@@ -61,5 +60,10 @@ public class PersonaDAOImpl extends PersonaDAO{
 		}
 
 		return null;
+	}
+
+	public void close() {
+		// TODO Auto-generated method stub
+		
 	}
 }

@@ -9,7 +9,7 @@ import org.springframework.transaction.annotation.Transactional;
 import com.lucatic.agenda.beans.Departamento;
 
 
-public class DepartamentoDAOImpl extends DepartamentoDAO{
+public class DepartamentoDAOImpl implements DepartamentoDAO{
 	
 	private SessionFactory sessionFactory;
 
@@ -21,7 +21,7 @@ public class DepartamentoDAOImpl extends DepartamentoDAO{
 		this.sessionFactory = sessionFactory;
 	}
 
-	@Override
+
 	@Transactional
 	public List<Departamento> list() {
 		@SuppressWarnings("unchecked")
@@ -31,13 +31,12 @@ public class DepartamentoDAOImpl extends DepartamentoDAO{
 		return listDepartamento;
 	}
 
-	@Override
 	@Transactional
 	public void saveOrUpdate(Departamento item) {
 		sessionFactory.getCurrentSession().saveOrUpdate(item);
 	}
 
-	@Override
+	
 	@Transactional
 	public void delete(int id) {
 		Departamento userToDelete = new Departamento();
@@ -45,7 +44,7 @@ public class DepartamentoDAOImpl extends DepartamentoDAO{
 		sessionFactory.getCurrentSession().delete(userToDelete);
 	}
 
-	@Override
+	
 	@Transactional
 	public Departamento get(int id) {
 		String hql = "from departamentos where iddepartamento=" + id;
@@ -59,5 +58,10 @@ public class DepartamentoDAOImpl extends DepartamentoDAO{
 		}
 
 		return null;
+	}
+
+	public void close() throws Exception {
+		// TODO Auto-generated method stub
+		
 	}
 }

@@ -18,31 +18,17 @@ import com.lucatic.agenda.beans.Persona;
  * @see com.lucatic.agenda.dao.Departamentos
  * @author Hibernate Tools
  */
-public class DepartamentoDAO implements  GestorDAO<Departamento>{
+public interface DepartamentoDAO extends  GestorDAO<Departamento>{
 
-	public void close() throws Exception {
-		// TODO Auto-generated method stub
-		
-	}
+	public void close() throws Exception;
 
-	public List<Departamento> list() {
-		// TODO Auto-generated method stub
-		return null;
-	}
+	public List<Departamento> list();
 
-	public Departamento get(int id) {
-		// TODO Auto-generated method stub
-		return null;
-	}
+	public Departamento get(int id);
+	
 
-	public void saveOrUpdate(Departamento item) {
-		// TODO Auto-generated method stub
-		
-	}
+	public void saveOrUpdate(Departamento item);
 
-	public void delete(int id) {
-		// TODO Auto-generated method stub
-		
-	}
+	public void delete(int id);
 
 }

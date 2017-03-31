@@ -17,33 +17,16 @@ import com.lucatic.agenda.beans.Persona;
  * @see com.lucatic.agenda.dao.Categorias
  * @author Hibernate Tools
  */
-public class CategoriaDAO implements  GestorDAO<Categoria>{
+public interface CategoriaDAO extends  GestorDAO<Categoria>{
 
-	public void close() throws Exception {
-		// TODO Auto-generated method stub
+	public void close();
+
+	public List<Categoria> list() ;
+
+	public Categoria get(int id);
 		
-	}
+	public void saveOrUpdate(Categoria item);
 
-	public List<Categoria> list() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	public Categoria get(int id) {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	public void saveOrUpdate(Categoria item) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	public void delete(int id) {
-		// TODO Auto-generated method stub
-		
-	}
-
-
-	
+	public void delete(int id);
 }
+

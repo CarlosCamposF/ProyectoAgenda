@@ -12,7 +12,7 @@ import com.lucatic.agenda.beans.Categoria;
 
 
 
-public class CategoriaDAOImpl extends CategoriaDAO{
+public class CategoriaDAOImpl implements CategoriaDAO{
 	@Autowired
 	private SessionFactory sessionFactory;
 
@@ -24,7 +24,7 @@ public class CategoriaDAOImpl extends CategoriaDAO{
 		this.sessionFactory = sessionFactory;
 	}
 
-	@Override
+	
 	@Transactional
 	public List<Categoria> list() {
 		@SuppressWarnings("unchecked")
@@ -34,13 +34,13 @@ public class CategoriaDAOImpl extends CategoriaDAO{
 		return listUser;
 	}
 
-	@Override
+	
 	@Transactional
 	public void saveOrUpdate(Categoria item) {
 		sessionFactory.getCurrentSession().saveOrUpdate(item);
 	}
 
-	@Override
+	
 	@Transactional
 	public void delete(int id) {
 		Categoria userToDelete = new Categoria();
@@ -48,7 +48,7 @@ public class CategoriaDAOImpl extends CategoriaDAO{
 		sessionFactory.getCurrentSession().delete(userToDelete);
 	}
 
-	@Override
+	
 	@Transactional
 	public Categoria get(int id) {
 		String hql = "from categoria where idcategorias=" + id;
@@ -62,5 +62,10 @@ public class CategoriaDAOImpl extends CategoriaDAO{
 		}
 
 		return null;
+	}
+
+	public void close() {
+		// TODO Auto-generated method stub
+		
 	}
 }
