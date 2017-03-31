@@ -20,14 +20,4 @@ import com.lucatic.agenda.beans.Persona;
  */
 public interface DireccionesDAO extends GestorDAO<Direccion>{
 
-	public void close();
-
-	public List<Direccion> list();
-
-	public Direccion get(int id);
-
-	public void saveOrUpdate(Direccion item);
-
-	public void delete(int id);
-
 }

@@ -20,15 +20,4 @@ import com.lucatic.agenda.beans.Persona;
  */
 public interface DepartamentoDAO extends  GestorDAO<Departamento>{
 
-	public void close() throws Exception;
-
-	public List<Departamento> list();
-
-	public Departamento get(int id);
-	
-
-	public void saveOrUpdate(Departamento item);
-
-	public void delete(int id);
-
 }

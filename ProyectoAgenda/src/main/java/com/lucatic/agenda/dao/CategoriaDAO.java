@@ -18,15 +18,5 @@ import com.lucatic.agenda.beans.Persona;
  * @author Hibernate Tools
  */
 public interface CategoriaDAO extends  GestorDAO<Categoria>{
-
-	public void close();
-
-	public List<Categoria> list() ;
-
-	public Categoria get(int id);
-		
-	public void saveOrUpdate(Categoria item);
-
-	public void delete(int id);
 }
 

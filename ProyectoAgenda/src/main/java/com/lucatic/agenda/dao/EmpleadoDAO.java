@@ -19,14 +19,4 @@ import com.lucatic.agenda.beans.Persona;
  * @author Hibernate Tools
  */
 public interface EmpleadoDAO extends  GestorDAO<Empleado>{
-
-	public void close();
-
-	public List<Empleado> list();
-
-	public Empleado get(int id);
-
-	public void saveOrUpdate(Empleado item);
-
-	public void delete(int id);
 }

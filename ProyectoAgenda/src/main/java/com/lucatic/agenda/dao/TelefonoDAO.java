@@ -18,13 +18,5 @@ import com.lucatic.agenda.beans.Telefono;
  * @author Hibernate Tools
  */
 public interface TelefonoDAO extends GestorDAO{
-	public void close();
-
-	public List<Telefono> list();
-
-	public Telefono get(int id);
-
-	public void saveOrUpdate(Telefono item);
-
-	public void delete(int id);
+	
 }

@@ -66,4 +66,19 @@ public class PersonaDAOImpl implements PersonaDAO{
 		// TODO Auto-generated method stub
 		
 	}
+
+	public Persona getNombre(String nombre) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public Persona getTelefono(int telefono) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public Persona getDireccion(String direccion) {
+		// TODO Auto-generated method stub
+		return null;
+	}
 }

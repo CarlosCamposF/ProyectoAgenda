@@ -12,15 +12,9 @@ import com.lucatic.agenda.beans.Persona;
  */
 public interface PersonaDAO extends  GestorDAO<Persona>{
 
-	public void close();
-
-	public List<Persona> list();
+	public Persona getNombre(String nombre);
 	
-	public Persona get(int id);
-
-	public void saveOrUpdate(Persona item);
-
-	public void delete(int id);
-
+	public Persona getTelefono(int telefono);
 	
+	public Persona getDireccion(String direccion);
 }

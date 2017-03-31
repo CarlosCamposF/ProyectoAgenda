@@ -18,7 +18,7 @@ private TelefonoDAO telefonoDAO;
 
 	public Telefono get(int id) {
 		// TODO Auto-generated method stub
-		return telefonoDAO.get(id);
+		return (Telefono) telefonoDAO.get(id);
 	}
 
 	public void saveOrUpdate(Telefono telefono) {
