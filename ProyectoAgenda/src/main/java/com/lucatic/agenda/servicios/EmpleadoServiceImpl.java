@@ -31,4 +31,18 @@ public class EmpleadoServiceImpl implements EmpleadoService{
 		
 	}
 
+	public List<Empleado> getDep(String dep) {
+		return empleadoDAO.getDep(dep);
+	}
+
+	public List<Empleado> getCat(String cate) {
+		// TODO Auto-generated method stub
+		return empleadoDAO.getCat(cate);
+	}
+
+	public List<Empleado> getSalario(int salario1, int salario2) {
+		// TODO Auto-generated method stub
+		return empleadoDAO.getSalario(salario1,salario2);
+	}
+
 }

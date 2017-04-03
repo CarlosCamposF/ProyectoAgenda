@@ -17,21 +17,32 @@ public class PersonaServiceImpl implements PersonaService {
 
 	public Persona get(int id) {
 		// TODO Auto-generated method stub
-		return null;
+		return personaDAO.get(id);
 	}
 
 	public void saveOrUpdate(Persona persona) {
-		// TODO Auto-generated method stub
+		personaDAO.saveOrUpdate(persona);
 
 	}
 
 	public void delete(int id) {
-		// TODO Auto-generated method stub
+		personaDAO.delete(id);
 
 	}
 
 	public List<Persona> list() {
-		// TODO Auto-generated method stub
-		return null;
+		return personaDAO.list();
+	}
+
+	public List<Persona> getNombre(String nombre) {
+		return personaDAO.getNombre(nombre);
+	}
+
+	public List<Persona> getTelefono(int telefono) {
+		return personaDAO.getTelefono(telefono);
+	}
+
+	public List<Persona> getDireccion(String direccion) {
+		return personaDAO.getDireccion(direccion);
 	}
 }
