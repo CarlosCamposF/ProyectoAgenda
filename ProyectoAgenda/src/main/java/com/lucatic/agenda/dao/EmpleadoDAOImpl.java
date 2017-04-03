@@ -21,7 +21,7 @@ public class EmpleadoDAOImpl implements EmpleadoDAO{
 		this.sessionFactory = sessionFactory;
 	}
 
-	
+	//Listamos empleados sin repeticiones
 	@Transactional
 	public List<Empleado> list() {
 		@SuppressWarnings("unchecked")
@@ -31,13 +31,13 @@ public class EmpleadoDAOImpl implements EmpleadoDAO{
 		return listDepartamento;
 	}
 
-	
+	//Guardamos o actualizamos un empleado
 	@Transactional
 	public void saveOrUpdate(Empleado item) {
 		sessionFactory.getCurrentSession().saveOrUpdate(item);
 	}
 
-	
+	//Borramos un empleado según el ID del mismo
 	@Transactional
 	public void delete(int id) {
 		Empleado userToDelete = new Empleado();
@@ -45,7 +45,7 @@ public class EmpleadoDAOImpl implements EmpleadoDAO{
 		sessionFactory.getCurrentSession().delete(userToDelete);
 	}
 
-	
+	//obtenemos un empleado según un ID
 	@Transactional
 	public Empleado get(int id) {
 		String hql = "from empleados where idempleado=" + id;
@@ -61,7 +61,7 @@ public class EmpleadoDAOImpl implements EmpleadoDAO{
 		return null;
 	}
 
-	
+	//listamos los empleados de un departamento
 
 	public List<Empleado> getDep(String dep) {
 		String hql = "from empleados a, departamentos b where a.idDepartamento=b.iddepartamento b.nombre like %" + dep+"%";
@@ -76,7 +76,7 @@ public class EmpleadoDAOImpl implements EmpleadoDAO{
 
 		return null;
 	}
-
+	//Listamos empleados segun una categoria
 	public List<Empleado> getCat(String cat) {
 		String hql = "from empleados a, categorias b where a.idCategoria=b.idcategorias b.nombre like %" + cat+"%";
 		Query query = sessionFactory.getCurrentSession().createQuery(hql);
@@ -89,7 +89,7 @@ public class EmpleadoDAOImpl implements EmpleadoDAO{
 		}
 		return null;
 	}
-
+	//Listamos empleados entre un rango salarial
 	public List<Empleado> getSalario(int salario1, int salario2) {
 		String hql = "from empleados where salario between "+salario1+" AND "+salario2 ;
 		Query query = sessionFactory.getCurrentSession().createQuery(hql);

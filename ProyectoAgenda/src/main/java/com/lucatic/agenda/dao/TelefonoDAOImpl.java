@@ -20,7 +20,7 @@ public class TelefonoDAOImpl implements TelefonoDAO{
 		this.sessionFactory = sessionFactory;
 	}
 
-	
+	//Mostramos una lista detelefonos sin repeticiones
 	@Transactional
 	public List<Telefono> list() {
 		@SuppressWarnings("unchecked")
@@ -30,13 +30,13 @@ public class TelefonoDAOImpl implements TelefonoDAO{
 		return listDepartamento;
 	}
 
-
+	//Guardamos o actualizamos un telefono
 	@Transactional
 	public void saveOrUpdate(Telefono item) {
 		sessionFactory.getCurrentSession().saveOrUpdate(item);
 	}
 
-
+	//Borramos un telefono por ID 
 	@Transactional
 	public void delete(int id) {
 		Telefono userToDelete = new Telefono();
@@ -44,7 +44,7 @@ public class TelefonoDAOImpl implements TelefonoDAO{
 		sessionFactory.getCurrentSession().delete(userToDelete);
 	}
 
-	
+	//Obtenemos un telefono por un ID
 	@Transactional
 	public Telefono get(int id) {
 		String hql = "from telefonos where idtelefonos=" + id;
@@ -60,11 +60,7 @@ public class TelefonoDAOImpl implements TelefonoDAO{
 		return null;
 	}
 
-	public void saveOrUpdate(Object item) {
-		// TODO Auto-generated method stub
-		
-	}
-
+	
 	public void close() {
 		// TODO Auto-generated method stub
 		

@@ -19,5 +19,5 @@ import com.lucatic.agenda.beans.Persona;
  * @author Hibernate Tools
  */
 public interface DepartamentoDAO extends  GestorDAO<Departamento>{
-
+//Interface dao de departamento por si mas adelante necesitamos agregar nuevos metodos a los departamentos
 }

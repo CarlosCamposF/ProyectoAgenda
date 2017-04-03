@@ -21,7 +21,7 @@ public class DepartamentoDAOImpl implements DepartamentoDAO{
 		this.sessionFactory = sessionFactory;
 	}
 
-
+	//Devuelve un listado de todos los departamentos sin repeticiones
 	@Transactional
 	public List<Departamento> list() {
 		@SuppressWarnings("unchecked")
@@ -30,13 +30,13 @@ public class DepartamentoDAOImpl implements DepartamentoDAO{
 
 		return listDepartamento;
 	}
-
+	//Guarda o actualiza un registro si no hay un item con el mismo id se guarda en un nuevo registro, y si ya hay una concurrencia del ID actualizará dichos datos
 	@Transactional
 	public void saveOrUpdate(Departamento item) {
 		sessionFactory.getCurrentSession().saveOrUpdate(item);
 	}
 
-	
+	//Borra según el id
 	@Transactional
 	public void delete(int id) {
 		Departamento userToDelete = new Departamento();
@@ -44,7 +44,7 @@ public class DepartamentoDAOImpl implements DepartamentoDAO{
 		sessionFactory.getCurrentSession().delete(userToDelete);
 	}
 
-	
+	//Obtendremos un departamento según el id que indiquemos (mostramos solamente el primero de los datos que obtenemos)
 	@Transactional
 	public Departamento get(int id) {
 		String hql = "from departamentos where iddepartamento=" + id;

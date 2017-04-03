@@ -17,6 +17,6 @@ import com.lucatic.agenda.beans.Telefono;
  * @see com.lucatic.agenda.dao.Telefonos
  * @author Hibernate Tools
  */
-public interface TelefonoDAO extends GestorDAO{
-	
+public interface TelefonoDAO extends GestorDAO<Telefono>{
+	//Interface dao para telefono por si queremos añadir nuevos metodos mas adelante
 }

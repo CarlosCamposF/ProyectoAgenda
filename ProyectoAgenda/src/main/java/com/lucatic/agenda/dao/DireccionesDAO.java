@@ -19,5 +19,5 @@ import com.lucatic.agenda.beans.Persona;
  * @author Hibernate Tools
  */
 public interface DireccionesDAO extends GestorDAO<Direccion>{
-
+//Interface de direcciones por si mas adelante hay que definir nuevos metodos
 }

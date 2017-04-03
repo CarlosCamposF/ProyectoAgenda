@@ -19,10 +19,10 @@ import com.lucatic.agenda.beans.Empleado;
  * @author Hibernate Tools
  */
 public interface EmpleadoDAO extends  GestorDAO<Empleado>{
-
+	//Metodo para listar empleados según su departamento
 	public List<Empleado> getDep(String dep);
-	
+	//listamos Empleados segun su categoría
 	public List<Empleado> getCat(String cate);
-	
+	//Listamos según una franja salaríal
 	public List<Empleado> getSalario(int salario1, int salario2);
 }

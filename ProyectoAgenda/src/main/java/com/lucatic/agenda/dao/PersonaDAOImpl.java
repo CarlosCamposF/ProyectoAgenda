@@ -22,7 +22,7 @@ public class PersonaDAOImpl implements PersonaDAO{
 	public PersonaDAOImpl(SessionFactory sessionFactory) {
 		this.sessionFactory = sessionFactory;
 	}
-
+	//Listamos todas las personas sin duplicados
 	@Transactional
 	public List<Persona> list() {
 		@SuppressWarnings("unchecked")
@@ -32,13 +32,13 @@ public class PersonaDAOImpl implements PersonaDAO{
 		return listUser;
 	}
 
-	
+	//Guardamos o actualizamos el registro
 	@Transactional
 	public void saveOrUpdate(Persona item) {
 		sessionFactory.getCurrentSession().saveOrUpdate(item);
 	}
 
-	
+	//Borramos un registro
 	@Transactional
 	public void delete(int id) {
 		Persona userToDelete = new Persona();
@@ -46,7 +46,7 @@ public class PersonaDAOImpl implements PersonaDAO{
 		sessionFactory.getCurrentSession().delete(userToDelete);
 	}
 
-	
+	//Obtenemos un registro segun un ID
 	@Transactional
 	public Persona get(int id) {
 		String hql = "from personas where idpersonas=" + id;
@@ -66,7 +66,7 @@ public class PersonaDAOImpl implements PersonaDAO{
 		// TODO Auto-generated method stub
 		
 	}
-
+	//Buscamos por nombre
 	public List<Persona> getNombre(String nombre) {
 		String hql = "from personas where nombre like %" + nombre+"%";
 		Query query = sessionFactory.getCurrentSession().createQuery(hql);
@@ -81,7 +81,7 @@ public class PersonaDAOImpl implements PersonaDAO{
 		return null;
 	}
 	
-
+	//Buscamos por telefono
 	public List<Persona> getTelefono(int telefono) {
 		String hql = "from personas a, telefonos b where a.idpersonas=idPersona and telefono like %" + telefono+"%";
 		Query query = sessionFactory.getCurrentSession().createQuery(hql);
@@ -95,7 +95,7 @@ public class PersonaDAOImpl implements PersonaDAO{
 
 		return null;
 	}
-
+	//Buscamos por direccion
 	public List<Persona> getDireccion(String direccion) {
 		String hql = "from personas a, direcciones b where a.idpersona=b.idPersona and direccion like %" + direccion+"%";
 		Query query = sessionFactory.getCurrentSession().createQuery(hql);

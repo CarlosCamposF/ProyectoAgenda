@@ -11,10 +11,11 @@ import com.lucatic.agenda.beans.Persona;
  * @author Hibernate Tools
  */
 public interface PersonaDAO extends  GestorDAO<Persona>{
-
+	
+	//Realizamos una busqueda de personas por un nombre
 	public List<Persona> getNombre(String nombre);
-	
+	//Buscamos por telefono a la persona
 	public List<Persona> getTelefono(int telefono);
-	
+	//Buscamos a la persona por una direccion
 	public List<Persona> getDireccion(String direccion);
 }

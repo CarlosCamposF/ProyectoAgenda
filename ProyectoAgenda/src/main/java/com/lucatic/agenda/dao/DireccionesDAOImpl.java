@@ -20,7 +20,7 @@ public class DireccionesDAOImpl implements DireccionesDAO {
 		this.sessionFactory = sessionFactory;
 	}
 
-	
+	//Mostramos un listado de direcciones sin repeticiones
 	@Transactional
 	public List<Direccion> list() {
 		@SuppressWarnings("unchecked")
@@ -30,13 +30,13 @@ public class DireccionesDAOImpl implements DireccionesDAO {
 		return listDepartamento;
 	}
 
-	
+	//guardamos o actualizamos un registro en la base de datos
 	@Transactional
 	public void saveOrUpdate(Direccion item) {
 		sessionFactory.getCurrentSession().saveOrUpdate(item);
 	}
 
-	
+	//borramos un registro de la base de datos indicando el ID
 	@Transactional
 	public void delete(int id) {
 		Direccion userToDelete = new Direccion();
@@ -44,7 +44,7 @@ public class DireccionesDAOImpl implements DireccionesDAO {
 		sessionFactory.getCurrentSession().delete(userToDelete);
 	}
 
-	
+	//Obtendremos una direccion buscando por un ID
 	@Transactional
 	public Direccion get(int id) {
 		String hql = "from Direcciones where iddirecciones=" + id;

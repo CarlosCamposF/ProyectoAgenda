@@ -18,5 +18,7 @@ import com.lucatic.agenda.beans.Persona;
  * @author Hibernate Tools
  */
 public interface CategoriaDAO extends  GestorDAO<Categoria>{
+	
+	//DAO para categoria por si mas adelante necesitamos metodos especificos para las categorías o por si queremos ampliar
 }
 
