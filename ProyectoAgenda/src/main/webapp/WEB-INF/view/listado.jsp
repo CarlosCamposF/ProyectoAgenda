@@ -105,12 +105,14 @@
 			</tr>
 
 
-			<c:forEach var="categoria" items="${listado}" >
+			<c:forEach var="persona" items="${listado}" >
 				<tr>
-					<td>${categoria.idcategorias}</td>
-					<td>${categoria.nombre}</td>
-					<td>${categoria.descripcion}</td>
-					<td><a href="detalle_contacto">Detalles</a></td>
+					<td>${persona.nombre}</td>
+					<td>${persona.apellido1}</td>
+					<td>${persona.apellido2}</td>
+					
+					
+					<td><a href="detalle">Detalles</a></td>
 				</tr>
 			</c:forEach>
 

@@ -50,7 +50,7 @@ public class DireccionesDAOImpl implements DireccionesDAO {
 	//Obtendremos una direccion buscando por un ID
 	@Transactional
 	public Direccion get(int id) {
-		String hql = "from Direcciones where iddirecciones=" + id;
+		String hql = "from Direccion where iddirecciones=" + id;
 		Query query = sessionFactory.getCurrentSession().createQuery(hql);
 
 		@SuppressWarnings("unchecked")

@@ -50,7 +50,7 @@ public class TelefonoDAOImpl implements TelefonoDAO{
 	//Obtenemos un telefono por un ID
 	@Transactional
 	public Telefono get(int id) {
-		String hql = "from telefonos where idtelefonos=" + id;
+		String hql = "from Telefono where idtelefonos=" + id;
 		Query query = sessionFactory.getCurrentSession().createQuery(hql);
 
 		@SuppressWarnings("unchecked")

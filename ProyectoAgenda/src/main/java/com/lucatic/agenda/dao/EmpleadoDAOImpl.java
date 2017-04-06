@@ -51,7 +51,7 @@ public class EmpleadoDAOImpl implements EmpleadoDAO{
 	//obtenemos un empleado según un ID
 	@Transactional
 	public Empleado get(int id) {
-		String hql = "from empleados where idempleado=" + id;
+		String hql = "from Empleado where idempleado=" + id;
 		Query query = sessionFactory.getCurrentSession().createQuery(hql);
 
 		@SuppressWarnings("unchecked")

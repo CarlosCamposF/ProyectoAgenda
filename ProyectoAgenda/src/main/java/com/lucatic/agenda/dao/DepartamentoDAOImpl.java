@@ -49,7 +49,7 @@ public class DepartamentoDAOImpl implements DepartamentoDAO{
 	//Obtendremos un departamento según el id que indiquemos (mostramos solamente el primero de los datos que obtenemos)
 	@Transactional
 	public Departamento get(int id) {
-		String hql = "from departamentos where iddepartamento=" + id;
+		String hql = "from Departamento where iddepartamento=" + id;
 		Query query = sessionFactory.getCurrentSession().createQuery(hql);
 
 		@SuppressWarnings("unchecked")

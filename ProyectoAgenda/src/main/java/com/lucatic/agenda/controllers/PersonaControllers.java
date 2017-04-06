@@ -13,11 +13,16 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.lucatic.agenda.beans.Categoria;
+import com.lucatic.agenda.beans.Direccion;
 import com.lucatic.agenda.beans.Persona;
 import com.lucatic.agenda.dao.PersonaDAOImpl;
 import com.lucatic.agenda.servicios.CategoriaService;
+import com.lucatic.agenda.servicios.DepartamentoService;
+import com.lucatic.agenda.servicios.DireccionService;
+import com.lucatic.agenda.servicios.EmpleadoService;
 import com.lucatic.agenda.servicios.PersonaService;
 import com.lucatic.agenda.servicios.Service;
+import com.lucatic.agenda.servicios.TelefonoService;
 
 
 
@@ -26,27 +31,29 @@ import com.lucatic.agenda.servicios.Service;
 public class PersonaControllers {
 	
 	@Autowired
-	private CategoriaService service;
+	private PersonaService servicePersona;
+	private CategoriaService serviceCategoria;
+	private TelefonoService serviceTelefono;
+	private EmpleadoService serviceEmpleado;
+	private DepartamentoService serviceDepartamento;
+	private DireccionService serviceDireccion;
 	
 
 	@RequestMapping("/")
 	public ModelAndView handleRequest() throws Exception {
 		
 		System.out.println("--entrando al /home");
-		List<Categoria> personas =  new ArrayList<Categoria>();
+		List<Persona> personas =  new ArrayList<Persona>();
 		System.out.println("probando ultimo");
-		personas = service.list();
-		PersonaDAOImpl per = new PersonaDAOImpl();
-		//Persona p1 = per.get(1);
-		for(Categoria p : personas){
-			System.out.print(p.getNombre()+" ");
-			System.out.print(p.getDescripcion()+" ");
-			System.out.print(p.getIdcategorias()+" ");
-			//System.out.println(p.getDni());
-		}
-		//System.out.println(p1.getNombre());
+		personas = servicePersona.list();
+		
+		/*for(Persona p : personas){
+			System.out.println(p.getEmpleados().getCategorias().getNombre());
+		}*/
+		
 		ModelAndView model = new ModelAndView("listado");
 		model.addObject("listado", personas);
+		//model.addObject("categorias", categoria);
 		return model;
 	}
 	
@@ -61,27 +68,34 @@ public class PersonaControllers {
 	public ModelAndView editUser(HttpServletRequest request) {
 		//int userId = Integer.parseInt(request.getParameter("id"));
 		//Persona persona = (Persona) service.get(userId);
-		ModelAndView model = new ModelAndView("listado");
+		ModelAndView model = new ModelAndView("modificar");
 		model.addObject("persona", new Persona());
+		model.addObject("direccion", new Direccion());
 		return model;		
 	}
 	
 	@RequestMapping(value = "/delete", method = RequestMethod.GET)
 	public ModelAndView deleteUser(HttpServletRequest request) {
 		int personaId = Integer.parseInt(request.getParameter("id"));
-		service.delete(personaId);
+		servicePersona.delete(personaId);
 		return new ModelAndView("redirect:/");		
 	}
 	
-	/*@RequestMapping(value = "/save", method = RequestMethod.POST)
+	@RequestMapping(value = "/save", method = RequestMethod.POST)
 	public ModelAndView saveUser(@ModelAttribute Persona persona) {
-		service.saveOrUpdate(persona);
+		servicePersona.saveOrUpdate(persona);
+		
 		return new ModelAndView("redirect:/");
-	}*/
-	@RequestMapping(value = "/detalle_contacto", method = RequestMethod.GET)
-	public ModelAndView pep(@ModelAttribute Categoria persona) {
-		//service.saveOrUpdate(persona);
-		return new ModelAndView("detalle_contacto");
+	}
+	@RequestMapping(value = "/detalle", method = RequestMethod.GET)
+	public ModelAndView pep(@ModelAttribute Persona persona) {
+		System.out.println("peta");
+		Persona p1= servicePersona.get(1);
+		System.out.println(p1.getNombre());
+		ModelAndView model = new ModelAndView("detalle_contacto");
+		model.addObject("persona", p1);
+		System.out.println("hola");
+		return model;
 	}
 	
 }

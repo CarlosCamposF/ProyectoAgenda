@@ -147,7 +147,7 @@
                                     </p>
                                     <br>
                                     <p>
-                                        <strong>Categoría :</strong> Becario
+                                        <strong>Categoría :</strong>
                                     </p>
                                     <br>
                                     <p>
@@ -177,16 +177,16 @@
                             </div>
                             <div class="texto_adicional_informacion_personal">
                                 <br>
-                                <p><strong>Nombre : </strong>Gorka</p>
+                                <p><strong>Nombre : </strong>${persona.nombre}</p>
                             
                                 <br>
-                                <p><strong>Primer apellido : </strong>Campos</p>
+                                <p><strong>Primer apellido : </strong>${persona.apellido1}</p>
                                 <br>
-                                <p><strong>Segundo apellido : </strong>Barroso</p>
+                                <p><strong>Segundo apellido : </strong>${persona.apellido2}</p>
                                 <br>
-                                <p><strong>D.N.I. : </strong>12312312-A</p>
+                                <p><strong>D.N.I. : </strong>${persona.dni}</p>
                                 <br>
-                                <p><strong>Fecha de nacimiento : </strong>26-02-1970</p>
+                                <p><strong>Fecha de nacimiento : </strong>${persona.fechaNacimiento}</p>
                                 <br>
                                 <p><strong>Dirección : </strong>C/Falsa 123</p>
                                 <br>

@@ -55,7 +55,7 @@ public class CategoriaDAOImpl implements CategoriaDAO{
 	
 	@Transactional
 	public Categoria get(int id) {
-		String hql = "from categoria where idcategorias=" + id;
+		String hql = "from Categoria where idcategorias=" + id;
 		Query query = sessionFactory.getCurrentSession().createQuery(hql);
 
 		@SuppressWarnings("unchecked")
