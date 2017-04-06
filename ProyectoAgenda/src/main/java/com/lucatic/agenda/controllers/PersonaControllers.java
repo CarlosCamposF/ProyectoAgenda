@@ -1,7 +1,9 @@
 package com.lucatic.agenda.controllers;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -15,6 +17,7 @@ import org.springframework.web.servlet.ModelAndView;
 import com.lucatic.agenda.beans.Categoria;
 import com.lucatic.agenda.beans.Direccion;
 import com.lucatic.agenda.beans.Persona;
+import com.lucatic.agenda.beans.Telefono;
 import com.lucatic.agenda.dao.PersonaDAOImpl;
 import com.lucatic.agenda.servicios.CategoriaService;
 import com.lucatic.agenda.servicios.DepartamentoService;
@@ -71,6 +74,7 @@ public class PersonaControllers {
 		ModelAndView model = new ModelAndView("modificar");
 		model.addObject("persona", new Persona());
 		model.addObject("direccion", new Direccion());
+		model.addObject("telefono", new Telefono());
 		return model;		
 	}
 	
@@ -82,11 +86,13 @@ public class PersonaControllers {
 	}
 	
 	@RequestMapping(value = "/save", method = RequestMethod.POST)
-	public ModelAndView saveUser(@ModelAttribute Persona persona) {
+	public ModelAndView saveUser(@ModelAttribute Persona persona,@ModelAttribute Telefono telefono,@ModelAttribute Direccion direccion) {
+		persona.getTelefonoses().add(telefono);
+		persona.getDireccioneses().add(direccion);
 		servicePersona.saveOrUpdate(persona);
-		
 		return new ModelAndView("redirect:/");
 	}
+	
 	@RequestMapping(value = "/detalle", method = RequestMethod.GET)
 	public ModelAndView pep(@ModelAttribute Persona persona) {
 		System.out.println("peta");

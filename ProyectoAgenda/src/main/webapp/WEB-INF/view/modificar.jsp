@@ -102,32 +102,49 @@
     <main>        
 
       <table>
-			<form:form action="save" method="post" modelAttribute="persona">
-				<form:hidden path="idpersonas" />
+			<form action="save" method="post">
+				<form:hidden path="persona.idpersonas" />
+				<form:hidden path="direccion.iddirecciones" />
 				<tr>
 					<td>Nombre:</td>
-					<td><form:input path="nombre" /></td>
+					<td><form:input path="persona.nombre" /></td>
 				</tr>
 				<tr>
 					<td>Primer Apellido:</td>
-					<td><form:input path="apellido1" /></td>
+					<td><form:input path="persona.apellido1" /></td>
 				</tr>
 				<tr>
 					<td>Segundo Apellido:</td>
-					<td><form:input path="apellido2" /></td>
+					<td><form:input path="persona.apellido2" /></td>
 				</tr>
 				<tr>
 					<td>DNI:</td>
-					<td><form:input path="dni" /></td>
+					<td><form:input path="persona.dni" /></td>
 				</tr>
-				
-				
-				
 				<tr>
-					<td colspan="2" align="center"><input type="submit"
-						value="Guardar Registro"></td>
+					<td>Telefono:</td>
+					<td><form:input path="telefono.telefono" /></td>
 				</tr>
-			</form:form>
+					<tr>
+						<td>Direccion:</td>
+						<td><form:input path="direccion.direccion" /></td>
+					</tr>
+					<tr>
+						<td>Codigo Postal:</td>
+						<td><form:input path="direccion.codPostal" /></td>
+					</tr>
+					<tr>
+						<td>Localidad:</td>
+						<td><form:input path="direccion.localidad" /></td>
+					</tr>
+					<tr>
+						<td>Provincia:</td>
+						<td><form:input path="direccion.provincia" /></td>
+					</tr>
+					<tr>
+						<td colspan="2" align="center"><input type="submit" value="Guardar Registro"></td>
+					</tr>
+			</form>
 		</table>
   
       <section class="well well2">
