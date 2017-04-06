@@ -12,9 +12,12 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+import com.lucatic.agenda.beans.Categoria;
 import com.lucatic.agenda.beans.Persona;
 import com.lucatic.agenda.dao.PersonaDAOImpl;
+import com.lucatic.agenda.servicios.CategoriaService;
 import com.lucatic.agenda.servicios.PersonaService;
+import com.lucatic.agenda.servicios.Service;
 
 
 
@@ -23,23 +26,23 @@ import com.lucatic.agenda.servicios.PersonaService;
 public class PersonaControllers {
 	
 	@Autowired
-	private PersonaService service;
+	private CategoriaService service;
 	
 
 	@RequestMapping("/")
 	public ModelAndView handleRequest() throws Exception {
 		
 		System.out.println("--entrando al /home");
-		List<Persona> personas =  new ArrayList<Persona>();
+		List<Categoria> personas =  new ArrayList<Categoria>();
 		System.out.println("probando ultimo");
 		personas = service.list();
 		PersonaDAOImpl per = new PersonaDAOImpl();
 		//Persona p1 = per.get(1);
-		for(Persona p : personas){
+		for(Categoria p : personas){
 			System.out.print(p.getNombre()+" ");
-			System.out.print(p.getApellido1()+" ");
-			System.out.print(p.getApellido2()+" ");
-			System.out.println(p.getDni());
+			System.out.print(p.getDescripcion()+" ");
+			System.out.print(p.getIdcategorias()+" ");
+			//System.out.println(p.getDni());
 		}
 		//System.out.println(p1.getNombre());
 		ModelAndView model = new ModelAndView("listado");
@@ -70,10 +73,15 @@ public class PersonaControllers {
 		return new ModelAndView("redirect:/");		
 	}
 	
-	@RequestMapping(value = "/save", method = RequestMethod.POST)
+	/*@RequestMapping(value = "/save", method = RequestMethod.POST)
 	public ModelAndView saveUser(@ModelAttribute Persona persona) {
 		service.saveOrUpdate(persona);
 		return new ModelAndView("redirect:/");
+	}*/
+	@RequestMapping(value = "/detalle_contacto", method = RequestMethod.GET)
+	public ModelAndView pep(@ModelAttribute Categoria persona) {
+		//service.saveOrUpdate(persona);
+		return new ModelAndView("detalle_contacto");
 	}
 	
 }

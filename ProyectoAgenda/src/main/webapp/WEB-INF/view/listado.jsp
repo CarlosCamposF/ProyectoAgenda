@@ -98,19 +98,19 @@
 		<main>
 		<table id="table" border="1">
 			<tr>
-				<th>Id Persona</th>
+				<th>Id Categoria</th>
 				<th>Nombre</th>
-				<th>Teléfono</th>
-				<th>Otros detalles</th>
+				<th>IdCategoria</th>
+				<th>Descripcion</th>
 			</tr>
 
 
-			<c:forEach var="personas" items="${listado}" >
+			<c:forEach var="categoria" items="${listado}" >
 				<tr>
-					<td>${personas.idpersonas}</td>
-					<td>${personas.nombre}</td>
-					<td>${personas.telefonoses}</td>
-					<td><a href="detalle_persona.html">Detalles</a></td>
+					<td>${categoria.idcategorias}</td>
+					<td>${categoria.nombre}</td>
+					<td>${categoria.descripcion}</td>
+					<td><a href="detalle_contacto">Detalles</a></td>
 				</tr>
 			</c:forEach>
 

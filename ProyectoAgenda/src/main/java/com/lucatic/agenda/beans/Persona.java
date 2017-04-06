@@ -54,7 +54,7 @@ public class Persona implements java.io.Serializable {
 	}
 
 	public Persona(Empleado empleados, String nombre, String apellido1, String apellido2, String dni,
-			Date fechaNacimiento, Set<Direccion> direccioneses, Set<Telefono> telefonoses) {
+		Date fechaNacimiento, Set<Direccion> direccioneses, Set<Telefono> telefonoses) {
 		this.empleados = empleados;
 		this.nombre = nombre;
 		this.apellido1 = apellido1;
