@@ -1,7 +1,6 @@
 package com.lucatic.agenda.controllers;
 
 import java.util.ArrayList;
-import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
@@ -41,22 +40,23 @@ public class PersonaControllers {
 	private DepartamentoService serviceDepartamento;
 	private DireccionService serviceDireccion;
 	
-
+	
+	
+	
 	@RequestMapping("/")
+	public ModelAndView Index() throws Exception {
+		ModelAndView model = new ModelAndView("index");
+		return model;
+	}
+	
+
+	@RequestMapping("/listado")
 	public ModelAndView handleRequest() throws Exception {
 		
-		System.out.println("--entrando al /home");
 		List<Persona> personas =  new ArrayList<Persona>();
-		System.out.println("probando ultimo");
 		personas = servicePersona.list();
-		
-		/*for(Persona p : personas){
-			System.out.println(p.getEmpleados().getCategorias().getNombre());
-		}*/
-		
 		ModelAndView model = new ModelAndView("listado");
 		model.addObject("listado", personas);
-		//model.addObject("categorias", categoria);
 		return model;
 	}
 	
@@ -67,10 +67,9 @@ public class PersonaControllers {
 		return model;		
 	}
 	
+
 	@RequestMapping(value = "/edit", method = RequestMethod.GET)
-	public ModelAndView editUser(HttpServletRequest request) {
-		//int userId = Integer.parseInt(request.getParameter("id"));
-		//Persona persona = (Persona) service.get(userId);
+	public ModelAndView editContacto(HttpServletRequest request) {
 		ModelAndView model = new ModelAndView("modificar");
 		model.addObject("persona", new Persona());
 		model.addObject("direccion", new Direccion());
@@ -92,16 +91,29 @@ public class PersonaControllers {
 		servicePersona.saveOrUpdate(persona);
 		return new ModelAndView("redirect:/");
 	}
-	
+
+	@RequestMapping(value = "/find", method = RequestMethod.GET)
+	public ModelAndView find(@ModelAttribute String nombre) {
+		Persona findPersona=servicePersona.getNombre(nombre).get(0);
+		ModelAndView model = new ModelAndView("redirect:/buscador");
+		model.addObject("detalle_contacto", findPersona);
+		return model;
+	}
+
 	@RequestMapping(value = "/detalle", method = RequestMethod.GET)
-	public ModelAndView pep(@ModelAttribute Persona persona) {
-		System.out.println("peta");
-		Persona p1= servicePersona.get(1);
-		System.out.println(p1.getNombre());
+	public ModelAndView DetalleContacto(HttpServletRequest request) {
+		int personaId = Integer.parseInt(request.getParameter("idpersonas"));
+		List<Persona> listPersona = servicePersona.list();
+		Persona persona=listPersona.get(personaId-1);
 		ModelAndView model = new ModelAndView("detalle_contacto");
-		model.addObject("persona", p1);
-		System.out.println("hola");
+		Set <Direccion> d = persona.getDireccioneses();
+		Set <Telefono> t = persona.getTelefonoses();
+		model.addObject("persona", persona);
+		model.addObject("direccion", d);
+		model.addObject("telefono", t);
+		
 		return model;
 	}
 	
 }
+

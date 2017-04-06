@@ -1,6 +1,4 @@
-<%@ taglib prefix="spring" uri="http://www.springframework.org/tags"%>
-<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%><!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="utf-8">
@@ -66,7 +64,7 @@
             <div class="">  
               <ul class="nav navbar-nav sf-menu" data-type="navbar">
                 <li class="">
-                  <a href="./">INICIO</a>
+                  <a href="index.jsp">INICIO</a>
                 </li>
                 <li class="dropdown">
                   <a>CONTACTOS<span class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></a>
@@ -101,34 +99,69 @@
 
     <main>        
 
-      <table>
-			<form action="save" method="post" modelAttribute="persona">
-				<form:hidden path="idpersonas" />
-				<tr>
-					<td>Nombre:</td>
-					<td><form:input path="nombre" /></td>
-				</tr>
-				<tr>
-					<td>Primer Apellido:</td>
-					<td><form:input path="apellido1" /></td>
-				</tr>
-				<tr>
-					<td>Segundo Apellido:</td>
-					<td><form:input path="apellido2" /></td>
-				</tr>
-				<tr>
-					<td>DNI:</td>
-					<td><form:input path="dni" /></td>
-				</tr>
-				
-				
-				
-				<tr>
-					<td colspan="2" align="center"><input type="submit"
-						value="Guardar Registro"></td>
-				</tr>
-			</form>
-		</table>
+      <section>
+        
+         <div align="center">
+           <form>
+              <h2>Crear<small> nuevo contacto</small></h2>
+              <section id="form1">    
+                   
+              <h4><span class="glyphicon glyphicon-user"></span> Personal</h4>
+                  Nombre:<br>
+                  <input type="text" required><br>
+                  Primer Apellido:<br>
+                  <input type="text" required><br>
+                  Segundo apellido:<br>
+                  <input type="text"><br>
+                  DNI:<br>
+                  <input type="text"><br>
+                  Fecha de nacimiento:<br>
+                  <input type="text"><br>
+                  Dirección:<br>
+                  <input type="text" required><br>
+                  Provincia:<br>
+                  <input type="text" required><br>
+                  Localidad:<br>
+                  <input type="text" required><br>
+                  Código postal:<br>
+                  <input type="text" required><br>
+                  Teléfono:<br>
+                  <input type="text"><br>
+               </section> 
+              <section id="form2">
+              <h4><span class="glyphicon glyphicon-file"></span> Empresa</h4>
+                  Departamento:<br>
+                  <select name="departamento">
+                  <option value="">RRHH</option>
+                  <option value="">Informática</option>
+                  <option value="">Logística</option>
+                  <option value="">Dirección</option>
+                  </select><br>
+                  Categoría:<br>
+                  <select name="categoria">
+                  <option value="">Programador</option>
+                  <option value="">Analísta</option>
+                  <option value="">Técnico RRHH</option>
+                  <option value="">Secretaria</option>
+                  <option value="">Recepcionista</option>
+                  <option value="">Master del Universo</option>
+                  </select><br>
+                  Código de empleado:<br>
+                  <input type="text" required><br>
+                  Salario:<br>
+                  <input type="text">€<br>
+                  Fecha de alta:<br>
+                  <input type="text"><br>
+              </section>
+                 
+              
+               <section id="form3">
+            <b><input id="boton" type="submit" value="Crear Contacto" ></b>
+              </section> 
+           </form>
+        </div>
+        
+        </section>
   
       <section class="well well2">
         <div class="container">

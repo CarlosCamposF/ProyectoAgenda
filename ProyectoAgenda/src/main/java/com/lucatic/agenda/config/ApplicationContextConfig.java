@@ -13,7 +13,9 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.orm.hibernate4.HibernateTransactionManager;
 import org.springframework.orm.hibernate4.LocalSessionFactoryBuilder;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
+import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 import org.springframework.web.servlet.view.InternalResourceViewResolver;
 
 import com.lucatic.agenda.beans.Categoria;
@@ -26,7 +28,8 @@ import com.lucatic.agenda.beans.Telefono;
 @Configuration
 @ComponentScan("com.lucatic.agenda")
 @EnableTransactionManagement
-public class ApplicationContextConfig{
+@EnableWebMvc
+public class ApplicationContextConfig extends WebMvcConfigurerAdapter{
     @Bean(name = "viewResolver")
     public InternalResourceViewResolver getViewResolver() {
     	System.out.println("entrando en conterxtConfig");
@@ -37,10 +40,10 @@ public class ApplicationContextConfig{
     }
     
 
-	/*public void addResourceHandlers(ResourceHandlerRegistry registry) {
-	    registry.addResourceHandler("/static/**").addResourceLocations("/static/");
+	public void addResourceHandlers(ResourceHandlerRegistry registry) {
+	    registry.addResourceHandler("/resources/**").addResourceLocations("/resources/");
 		//registry.addResourceHandler("/css/**").addResourceLocations("/static/css/");	    
-	}*/
+	}
      
     
     @Bean(name = "dataSource")

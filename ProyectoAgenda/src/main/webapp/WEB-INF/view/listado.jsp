@@ -10,23 +10,23 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
 <meta name="format-detection" content="telephone=no" />
-<link rel="icon" href="images/favicon.ico" type="image/x-icon">
+<link rel="icon" href="<c:url value="resources/images/favicon.ico"/>" type="image/x-icon">
 <title>HOME</title>
 
 <!-- Bootstrap -->
-<link href="css/bootstrap.css" rel="stylesheet">
+<link rel="stylesheet" href="<c:url value="resources/css/bootstrap.css"/> ">
 
 <!-- Links -->
-<link rel="stylesheet" href="css/camera.css">
-<link rel="stylesheet" href="css/search.css">
-<link rel="stylesheet" href="css/google-map.css">
-<link rel="stylesheet" href="css/main2.css">
+<link rel="stylesheet" href="<c:url value="resources/css/camera.css"/> ">
+<link rel="stylesheet" href="<c:url value="resources/css/search.css"/> ">
+<link rel="stylesheet" href="<c:url value="resources/css/google-map.css"/> ">
+<link rel="stylesheet" href="<c:url value="resources/css/main2.css"/> ">
 
 
 <!--JS-->
-<script src="js/jquery.js"></script>
-<script src="js/jquery-migrate-1.2.1.min.js"></script>
-<script src="js/rd-smoothscroll.min.js"></script>
+<script src="<c:url value="resources/js/jquery.js"/>"></script>
+<script src="<c:url value="resources/js/jquery-migrate-1.2.1.min.js"/>"></script>
+<script src="<c:url value="resources/js/rd-smoothscroll.min.js"/>"></script>
 
 
 <!--[if lt IE 9]>
@@ -38,7 +38,7 @@
     </div>
     <script src="js/html5shiv.js"></script>
     <![endif]-->
-<script src='js/device.min.js'></script>
+<script src="<c:url value="resources/js/device.min.js"/>"></script>
 </head>
 <body>
 	<div class="page">
@@ -72,7 +72,7 @@
 										class="glyphicon glyphicon-menu-down" aria-hidden="true"></span></a>
 									<ul class="dropdown-menu">
 										<li><a href="#">Mostrar todos</a></li>
-										<li><a href="Crear.html">Nuevo Contacto</a></li>
+										<li><a href="crear">Nuevo Contacto</a></li>
 									</ul></li>
 							</ul>
 						</div>
@@ -112,7 +112,7 @@
 					<td>${persona.apellido2}</td>
 					
 					
-					<td><a href="detalle">Detalles</a></td>
+					<td><a href="detalle?idpersonas=${persona.idpersonas}">Detalles</a></td>
 				</tr>
 			</c:forEach>
 
@@ -128,31 +128,31 @@
 				<div class="row offs1">
 					<ul class="flex-list">
 						<li class="col-lg-3 col-sm-3 col-xs-6"><a href="#"> <img
-								src="images/page-1_img7.jpg" alt="">
+								src="<c:url value="resources/images/page-1_img7.jpg"/>" alt="">
 						</a></li>
 						<li class="col-lg-3 col-sm-3 col-xs-6"><a href="#"> <img
-								src="images/page-1_img8.jpg" alt="">
+								src="<c:url value="resources/images/page-1_img8.jpg"/>" alt="">
 						</a></li>
 						<li class="col-lg-3 col-sm-3 col-xs-6"><a href="#"> <img
-								src="images/page-1_img9.jpg" alt="">
+								src="<c:url value="resources/images/page-1_img9.jpg"/>" alt="">
 						</a></li>
 						<li class="col-lg-3 col-sm-3 col-xs-6"><a href="#"> <img
-								src="images/page-1_img10.jpg" alt="">
+								src="<c:url value="resources/images/page-1_img10.jpg"/>" alt="">
 						</a></li>
 					</ul>
 
 					<ul class="flex-list">
 						<li class="col-lg-3 col-sm-3 col-xs-6"><a href="#"> <img
-								src="images/page-1_img11.jpg" alt="">
+								src="<c:url value="resources/images/page-1_img11.jpg"/>" alt="">
 						</a></li>
 						<li class="col-lg-3 col-sm-3 col-xs-6"><a href="#"> <img
-								src="images/page-1_img12.jpg" alt="">
+								src="<c:url value="resources/images/page-1_img12.jpg"/>" alt="">
 						</a></li>
 						<li class="col-lg-3 col-sm-3 col-xs-6"><a href="#"> <img
-								src="images/page-1_img13.jpg" alt="">
+								src="<c:url value="resources/images/page-1_img13.jpg"/>" alt="">
 						</a></li>
 						<li class="col-lg-3 col-sm-3 col-xs-6"><a href="#"> <img
-								src="images/page-1_img14.jpg" alt="">
+								src="<c:url value="resources/images/page-1_img14.jpg"/>" alt="">
 						</a></li>
 					</ul>
 				</div>
@@ -183,8 +183,8 @@
 
 		<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 		<!-- Include all compiled plugins (below), or include individual files as needed -->
-		<script src="js/bootstrap.min.js"></script>
-		<script src="js/tm-scripts.js"></script>
+		<script src="<c:url value="resources/js/bootstrap.min.js"/>"></script>
+		<script src="<c:url value="resources/js/tm-scripts.js"/>"></script>
 		<!-- </script> -->
 
 	</div>
