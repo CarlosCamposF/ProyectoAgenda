@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 05-abr-2017 16:50:51 by Hibernate Tools 4.3.1.Final -->
+<hibernate-mapping>
+    <class name="com.lucatic.agenda.beans.Direcciones" table="direcciones" catalog="agenda" optimistic-lock="version">
+        <id name="iddirecciones" type="java.lang.Integer">
+            <column name="iddirecciones" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="personas" class="com.lucatic.agenda.beans.Personas" fetch="select">
+            <column name="idPersona" />
+        </many-to-one>
+        <property name="direccion" type="string">
+            <column name="direccion" length="45" not-null="true" />
+        </property>
+        <property name="codPostal" type="string">
+            <column name="codPostal" length="45" not-null="true" />
+        </property>
+        <property name="localidad" type="string">
+            <column name="localidad" length="45" not-null="true" />
+        </property>
+        <property name="provincia" type="string">
+            <column name="provincia" length="45" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

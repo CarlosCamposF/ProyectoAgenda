@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated 05-abr-2017 16:50:51 by Hibernate Tools 4.3.1.Final -->
+<hibernate-mapping>
+    <class name="com.lucatic.agenda.beans.Personas" table="personas" catalog="agenda" optimistic-lock="version">
+        <id name="idpersonas" type="java.lang.Integer">
+            <column name="idpersonas" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="empleados" class="com.lucatic.agenda.beans.Empleados" fetch="select">
+            <column name="idEmpleado" />
+        </many-to-one>
+        <property name="nombre" type="string">
+            <column name="nombre" length="45" not-null="true" />
+        </property>
+        <property name="apellido1" type="string">
+            <column name="apellido1" length="45" not-null="true" />
+        </property>
+        <property name="apellido2" type="string">
+            <column name="apellido2" length="45" />
+        </property>
+        <property name="dni" type="string">
+            <column name="dni" length="20" />
+        </property>
+        <property name="fechaNacimiento" type="date">
+            <column name="fechaNacimiento" length="10" />
+        </property>
+        <set name="direccioneses" table="direcciones" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="idPersona" />
+            </key>
+            <one-to-many class="com.lucatic.agenda.beans.Direcciones" />
+        </set>
+        <set name="telefonoses" table="telefonos" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="idPersona" />
+            </key>
+            <one-to-many class="com.lucatic.agenda.beans.Telefonos" />
+        </set>
+    </class>
+</hibernate-mapping>
